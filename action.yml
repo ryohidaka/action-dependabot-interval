@@ -1,10 +1,16 @@
-name: "Action Template"
-description: ""
+name: "Dependabot Interval"
+description: "Action to change the value of interval in dependabot.yml"
 author: "ryohidaka"
 inputs:
+  interval:
+    description: "Interval value to be specified."
+    required: true
+  message:
+    description: "String to be specified in the commit message."
+    required: false
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
 branding:
-  icon: "file-text"
-  color: "green"
+  icon: "calendar"
+  color: "gray-dark"

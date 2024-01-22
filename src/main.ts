@@ -1,4 +1,8 @@
-import { findDependabotFilePath, getInputParameter } from "./lib";
+import {
+  findDependabotFilePath,
+  getInputParameter,
+  modifyDependabot,
+} from "./lib";
 
 async function run() {
   // Get input parameter.
@@ -6,6 +10,9 @@ async function run() {
 
   // Find dependabot.yaml path
   const path = await findDependabotFilePath();
+
+  // Modify dependabot.yaml intervel value
+  modifyDependabot(path, interval);
 }
 
 void run();

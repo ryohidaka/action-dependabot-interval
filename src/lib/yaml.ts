@@ -15,7 +15,7 @@ export const modifyDependabot = (
   const file = yaml.load(fs.readFileSync(filePath, "utf8")) as DependabotConfig;
 
   // Modify the update interval.
-  file.updates[0].schedule.interval = interval;
+  file.updates[0].schedule.interval = `"${interval}"`;
 
   // Write the modified configuration back to the file.
   fs.writeFileSync(filePath, yaml.dump(file));

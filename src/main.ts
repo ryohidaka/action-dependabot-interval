@@ -1,4 +1,5 @@
 import {
+  commitFile,
   findDependabotFilePath,
   getInputParameter,
   modifyDependabot,
@@ -13,6 +14,9 @@ async function run() {
 
   // Modify dependabot.yaml intervel value
   modifyDependabot(path, interval);
+
+  // Commit modified file
+  commitFile(message);
 }
 
 void run();

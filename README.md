@@ -1,13 +1,13 @@
-# action-template
+# dependabot-interval
 
-![build](https://github.com/ryohidaka/action-template/workflows/Build/badge.svg)
+![build](https://github.com/ryohidaka/dependabot-interval/workflows/Build/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Usage
 
 ```yml
 - name: Action Name
-  uses: ryohidaka/action-template@v1
+  uses: ryohidaka/dependabot-interval@v1
 ```
 
 ## Demo

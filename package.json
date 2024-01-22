@@ -15,8 +15,7 @@
   },
   "keywords": [
     "actions",
-    "node",
-    "md"
+    "node"
   ],
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

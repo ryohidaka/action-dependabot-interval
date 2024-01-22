@@ -29,10 +29,12 @@
   "homepage": "https://github.com/ryohidaka/dependabot-interval#readme",
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@vercel/ncc": "^0.38.1"
+    "@vercel/ncc": "^0.38.1",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.11.5",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "eslint": "^8.56.0",

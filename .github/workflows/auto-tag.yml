@@ -12,11 +12,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-      # Uncomment the following after cloning
-      - name: No operation
-        run: echo "No operation"
-      # - uses: Klemensas/action-autotag@stable
-      #   with:
-      #     GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      #     tag_prefix: "v"
-      #     changelog_structure: "**{{messageHeadline}}** {{author}}\n"
+      - uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          tag_prefix: "v"
+          changelog_structure: "**{{messageHeadline}}** {{author}}\n"

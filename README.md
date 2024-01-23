@@ -3,24 +3,31 @@
 ![build](https://github.com/ryohidaka/dependabot-interval/workflows/Build/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+Action to change the value of interval in dependabot.yml
+
 ## Usage
 
 ```yml
+permissions:
+  contents: write
+
 - name: Action Name
   uses: ryohidaka/dependabot-interval@v1
-```
+    with:
+      interval: "daily"
+      message: "Update dependabot.yml interval"
 
-## Demo
+```
 
 ## Inputs
 
-### `required_param`
+### `interval`
 
-**Required** Description
+**Required** Interval value to be specified.
 
-### `optional_param`
+### `message`
 
-**Optional** Description
+**Optional** String to be specified in the commit message.
 
 ## License
 

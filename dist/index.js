@@ -6993,36 +6993,43 @@ const constants_1 = __nccwpck_require__(9042);
  * @throws {Error} Will throw an error if the exec function encounters an error.
  */
 const commitFile = (message) => {
-    // Set the local git user email
-    (0, child_process_1.exec)(`git config --local user.email "${constants_1.GIT_USER_EMAIL}"`, (error, _stdout, _stderr) => {
-        if (error) {
-            throw new Error(`exec error: ${error}`);
+    // Check for changes
+    (0, child_process_1.exec)("git diff --exit-code", (error, _stdout, _stderr) => {
+        if (!error) {
+            console.log("No changes to commit");
+            return;
         }
-    });
-    // Set the local git username
-    (0, child_process_1.exec)(`git config --local user.name "${constants_1.GIT_USER_NAME}"`, (error, _stdout, _stderr) => {
-        if (error) {
-            throw new Error(`exec error: ${error}`);
-        }
-    });
-    // Stage all changes
-    (0, child_process_1.exec)("git add .", (error, _stdout, _stderr) => {
-        if (error) {
-            throw new Error(`exec error: ${error}`);
-        }
-        // Commit the staged changes with the provided message
-        (0, child_process_1.exec)(`git commit -m "${message}"`, (error, _stdout, _stderr) => {
+        // Set the local git user email
+        (0, child_process_1.exec)(`git config --local user.email "${constants_1.GIT_USER_EMAIL}"`, (error, _stdout, _stderr) => {
             if (error) {
                 throw new Error(`exec error: ${error}`);
             }
-            console.log("Commit successful");
         });
-        // Push commit
-        (0, child_process_1.exec)(`git push`, (error, _stdout, _stderr) => {
+        // Set the local git username
+        (0, child_process_1.exec)(`git config --local user.name "${constants_1.GIT_USER_NAME}"`, (error, _stdout, _stderr) => {
             if (error) {
                 throw new Error(`exec error: ${error}`);
             }
-            console.log("Push successful");
+        });
+        // Stage all changes
+        (0, child_process_1.exec)("git add .", (error, _stdout, _stderr) => {
+            if (error) {
+                throw new Error(`exec error: ${error}`);
+            }
+            // Commit the staged changes with the provided message
+            (0, child_process_1.exec)(`git commit -m "${message}"`, (error, _stdout, _stderr) => {
+                if (error) {
+                    throw new Error(`exec error: ${error}`);
+                }
+                console.log("Commit successful");
+                // Push commit
+                (0, child_process_1.exec)(`git push`, (error, _stdout, _stderr) => {
+                    if (error) {
+                        throw new Error(`exec error: ${error}`);
+                    }
+                    console.log("Push successful");
+                });
+            });
         });
     });
 };

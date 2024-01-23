@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 - name: Action Name
-  uses: ryohidaka/dependabot-interval@v1
+  uses: ryohidaka/dependabot-interval@v1.1
     with:
       interval: "daily"
       message: "Update dependabot.yml interval"

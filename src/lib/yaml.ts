@@ -12,11 +12,16 @@ export const modifyDependabot = (
   interval: Interval,
 ): void => {
   // Load the Dependabot configuration file.
-  const file = yaml.load(fs.readFileSync(filePath, "utf8")) as DependabotConfig;
+  const fileContent = fs.readFileSync(filePath, "utf8");
+  const file = yaml.load(fileContent) as DependabotConfig;
 
   // Modify the update interval.
-  file.updates[0].schedule.interval = `"${interval}"`;
+  file.updates[0].schedule.interval = interval;
 
   // Write the modified configuration back to the file.
-  fs.writeFileSync(filePath, yaml.dump(file));
+  const updatedFileContent = fileContent.replace(
+    /interval: .*/,
+    `interval: "${interval}"`,
+  );
+  fs.writeFileSync(filePath, updatedFileContent);
 };

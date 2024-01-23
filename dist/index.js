@@ -7078,11 +7078,13 @@ const js_yaml_1 = __importDefault(__nccwpck_require__(1917));
  */
 const modifyDependabot = (filePath, interval) => {
     // Load the Dependabot configuration file.
-    const file = js_yaml_1.default.load(fs_1.default.readFileSync(filePath, "utf8"));
+    const fileContent = fs_1.default.readFileSync(filePath, "utf8");
+    const file = js_yaml_1.default.load(fileContent);
     // Modify the update interval.
-    file.updates[0].schedule.interval = `"${interval}"`;
+    file.updates[0].schedule.interval = interval;
     // Write the modified configuration back to the file.
-    fs_1.default.writeFileSync(filePath, js_yaml_1.default.dump(file));
+    const updatedFileContent = fileContent.replace(/interval: .*/, `interval: "${interval}"`);
+    fs_1.default.writeFileSync(filePath, updatedFileContent);
 };
 exports.modifyDependabot = modifyDependabot;
 

@@ -1,6 +1,6 @@
 {
   "name": "dependabot-interval",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Action to change the value of interval in dependabot.yml",
   "main": "src/main.ts",
   "scripts": {

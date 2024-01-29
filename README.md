@@ -3,6 +3,8 @@
 ![build](https://github.com/ryohidaka/dependabot-interval/workflows/Build/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B6TVH92)
+
 Action to change the value of interval in dependabot.yml
 
 ## Usage
